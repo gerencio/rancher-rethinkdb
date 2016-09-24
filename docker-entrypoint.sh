@@ -11,7 +11,8 @@ if [ "$1" = 'rethinkdb-cluster' ]; then
     JOIN_LIST=$(giddyup ip stringify --prefix '--join ' --suffix ':29015' --delimiter ' ')
 
     exec rethinkdb \
-        --bind all \
+        --bind-http all \
+	--bind all \
         --canonical-address $PRIMARY_IP \
         $JOIN_LIST \
         "$@"
