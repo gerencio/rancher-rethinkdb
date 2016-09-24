@@ -2,7 +2,10 @@ FROM rethinkdb:2.3
 
 MAINTAINER Rory Hunter <roryhunter2@gmail.com>
 
-COPY giddyup /usr/bin/
+ENV GIDDYUP_VERSION=v0.14.0
+
+RUN curl -L https://github.com/cloudnautique/giddyup/releases/download/$GIDDYUP_VERSION/giddyup > /usr/bin/giddyup
+
 
 COPY docker-entrypoint.sh /
 
